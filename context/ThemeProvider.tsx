@@ -10,15 +10,20 @@ const ThemeContext = createContext<undefined | ThemeContextType>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<string>("");
   const handleThemeChange = () => {
-    if (mode === "dark") {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setMode("dark");
       document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.add("light");
+      setMode("light");
+      document.documentElement.classList.remove("dark");
     }
   };
 
   useEffect(() => {
-    setMode("dark");
     handleThemeChange();
   }, [mode]);
 
