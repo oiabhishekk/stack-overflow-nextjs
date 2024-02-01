@@ -65,7 +65,7 @@ const Theme = () => {
                     height={16}
                     src={item.icon}
                     alt={item.value}
-                    className={`${mode === item.value ? "active-theme" : ""}`}
+                    className={`${mode === item.value && "active-theme"}`}
                   />
                 </MenubarShortcut>
               </MenubarItem>
