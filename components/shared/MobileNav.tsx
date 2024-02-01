@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+
 import {
   Sheet,
   SheetClose,
@@ -9,9 +11,44 @@ import Image from "next/image";
 import Link from "next/link";
 import { SignedOut } from "@clerk/nextjs";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
+import { sidebarLinks } from "@/constants";
 
 const NavContent = () => {
-  return <h1>hiim nav content</h1>;
+  const pathname = usePathname();
+  console.log(pathname);
+  return (
+    <section className="flex h-full flex-col gap-6 pt-16">
+      {sidebarLinks.map((link) => {
+        const isActive =
+          (pathname.includes(link.route) && link.route.length > 1) ||
+          pathname === link.route;
+        return (
+          <SheetClose asChild key={link.label}>
+            <Link
+              href={link.route}
+              className={` ${
+                isActive
+                  ? "primary-gradient rounded-lg text-light-900 "
+                  : "text-dark300_light900"
+              } flex items-center justify-start gap-4 bg-transparent p-4`}
+            >
+              <Image
+                src={link.imgURL}
+                alt={link.label}
+                height={20}
+                width={20}
+                className={`${isActive ? "" : "invert-colors"}`}
+              />
+              <p className={`${isActive ? "base-bold" : "base-medium"}`}>
+                {link.label}
+              </p>
+            </Link>
+          </SheetClose>
+        );
+      })}
+    </section>
+  );
 };
 
 const MobileNav = () => {
