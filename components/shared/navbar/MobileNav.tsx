@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { SignedOut } from "@clerk/nextjs";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { usePathname } from "next/navigation";
 import { sidebarLinks } from "@/constants";
 
@@ -87,7 +87,7 @@ const MobileNav = () => {
           <SignedOut>
             <div className="flex flex-col gap-3">
               <SheetClose asChild>
-                <Link href="/sign-in" className="border-none shadow-none">
+                <Link href="/sign-in" className=" border-none shadow-none">
                   <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
                     <span className="primary-text-gradient">Log In</span>
                   </Button>
