@@ -3,18 +3,18 @@ import Link from "next/link";
 import React from "react";
 import RenderTag from "./RenderTag";
 const hotQuestions = [
-  { id: 1, title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
-  { id: 2, title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
-  { id: 3, title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
-  { id: 4, title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
-  { id: 5, title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
+  { id: "1", title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
+  { id: "2", title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
+  { id: "3", title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
+  { id: "4", title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
+  { id: "5", title: "Sarara rarra haha raha nanan bla qlaio der lorem5" },
 ];
 const popularTags = [
-  { id: 1, totalQuestions: 2, name: "Java" },
-  { id: 2, totalQuestions: 4, name: "JavaScript" },
-  { id: 3, totalQuestions: 6, name: "react" },
-  { id: 4, totalQuestions: 2, name: "Animation" },
-  { id: 5, totalQuestions: 10, name: "OpenSource" },
+  { id: "1", totalQuestions: 2, name: "Java" },
+  { id: "2", totalQuestions: 4, name: "JavaScript" },
+  { id: "3", totalQuestions: 6, name: "react" },
+  { id: "4", totalQuestions: 2, name: "Animation" },
+  { id: "5", totalQuestions: 10, name: "OpenSource" },
 ];
 
 const RightSideBar = () => {

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 type props = {
   _id: number | string;
   name: string;
-  showCount: boolean;
+  showCount?: boolean;
   totalQuestions?: number;
 };
 
