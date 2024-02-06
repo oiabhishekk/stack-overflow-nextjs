@@ -30,7 +30,7 @@ const Metric = ({
         alt={alt}
         className={`object-contain  ${href ? "rounded-full" : ""}`}
       />
-      <p className="flex items-center gap-1">
+      <p className="text-dark100_light900 flex items-center gap-1">
         {typeof value === "number" ? formatLargeNumber(value) : value}
 
         <span
@@ -47,7 +47,7 @@ const Metric = ({
     return (
       <Link href={href} className="flex-center gap-1">
         {metricContent}
-      </Link> 
+      </Link>
     );
   }
   return <div>{metricContent}</div>;
