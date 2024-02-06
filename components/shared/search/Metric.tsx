@@ -1,4 +1,6 @@
+import { formatLargeNumber } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 type MetricType = {
   href?: string;
@@ -19,8 +21,8 @@ const Metric = ({
   textStyles,
   isAuthor,
 }: MetricType) => {
-  return (
-    <div className="flex-center flex-wrap gap-1 ">
+  const metricContent = (
+    <>
       <Image
         src={imgUrl}
         width={16}
@@ -28,8 +30,27 @@ const Metric = ({
         alt={alt}
         className={`object-contain  ${href ? "rounded-full" : ""}`}
       />
-    </div>
+      <p className="flex items-center gap-1">
+        {typeof value === "number" ? formatLargeNumber(value) : value}
+
+        <span
+          className={`small-regular line-clamp-1 ${
+            isAuthor ? "max-sm:hidden" : ""
+          } `}
+        >
+          {title}
+        </span>
+      </p>
+    </>
   );
+  if (href) {
+    return (
+      <Link href={href} className="flex-center gap-1">
+        {metricContent}
+      </Link> 
+    );
+  }
+  return <div>{metricContent}</div>;
 };
 
 export default Metric;
